@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoadSnap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoadSnapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoadSnapResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Text">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TextResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="RoadSnapSoapIn">
+    <wsdl:part name="parameters" element="tns:RoadSnap" />
+  </wsdl:message>
+  <wsdl:message name="RoadSnapSoapOut">
+    <wsdl:part name="parameters" element="tns:RoadSnapResponse" />
+  </wsdl:message>
+  <wsdl:message name="TextSoapIn">
+    <wsdl:part name="parameters" element="tns:Text" />
+  </wsdl:message>
+  <wsdl:message name="TextSoapOut">
+    <wsdl:part name="parameters" element="tns:TextResponse" />
+  </wsdl:message>
+  <wsdl:portType name="nostra_serviceSoap">
+    <wsdl:operation name="Search">
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoadSnap">
+      <wsdl:input message="tns:RoadSnapSoapIn" />
+      <wsdl:output message="tns:RoadSnapSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Text">
+      <wsdl:input message="tns:TextSoapIn" />
+      <wsdl:output message="tns:TextSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="nostra_serviceSoap" type="tns:nostra_serviceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoadSnap">
+      <soap:operation soapAction="http://tempuri.org/RoadSnap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Text">
+      <soap:operation soapAction="http://tempuri.org/Text" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="nostra_serviceSoap12" type="tns:nostra_serviceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="http://tempuri.org/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoadSnap">
+      <soap12:operation soapAction="http://tempuri.org/RoadSnap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Text">
+      <soap12:operation soapAction="http://tempuri.org/Text" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="nostra_service">
+    <wsdl:port name="nostra_serviceSoap" binding="tns:nostra_serviceSoap">
+      <soap:address location="http://search-test.nostramap.com/_secure_/nostra_service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="nostra_serviceSoap12" binding="tns:nostra_serviceSoap12">
+      <soap12:address location="http://search-test.nostramap.com/_secure_/nostra_service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
